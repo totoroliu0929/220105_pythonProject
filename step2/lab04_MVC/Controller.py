@@ -1,10 +1,10 @@
-from step2.lab04_MVC.Models import Date, Student, Data
+from step2.lab04_MVC.Models import Date, Student
 from step2.lab04_MVC.Views import OutputView
 
 class Controller:
     def __init__(self):
-        self.list = Student.objects.data()
-        #pass
+        self.data = Student.objects
+        self.list = self.data.data()
 
     def run(self):
         choice = OutputView().menu()
@@ -15,15 +15,16 @@ class Controller:
             b = Date(y,m,d)
             st = Student()
             st.set(nid, name, b)
-            self.list.append(st)
+            self.data.add(st)
         elif choice == "3":
-            nid, name, y, m, d, num = OutputView().edit(self.list)
+            nid, name, y, m, d, num = OutputView(self.list).edit()
             b = Date(y, m, d)
-            st = Student()
-            st.set(nid, name, b)
-            self.list[num] = st
+            self.list[num].set(nid, name, b)
+        elif choice == "4":
+            num = OutputView(self.list).delete()
+            self.data.pop(num)
         self.go(choice)
 
     def go(self,choice):
-        if choice != "4":
+        if choice != "5":
             self.run()
