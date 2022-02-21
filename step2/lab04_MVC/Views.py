@@ -35,19 +35,19 @@ class OutputView:
             self.menu()
 
     def edit(self,list):
-        try:
-            num = int(input("\t\t請輸入要修改的學生序號\n\t\t")) - 1
-            if num < 0 or num > len(list):
+        while True:
+            try:
+                num = int(input("\t\t請輸入要修改的學生序號\n\t\t")) - 1
+                if num < 0 or num > len(list):
+                    print("\t\t沒有這個人")
+                else:
+                    print(f"\t\t修改{list[num].name}的資料")
+                    id = input("\t\t請輸入學生座號\n\t\t")
+                    name = input("\t\t請輸入學生姓名\n\t\t")
+                    y = input("\t\t請輸入學生出生年\n\t\t")
+                    m = input("\t\t請輸入學生出生月\n\t\t")
+                    d = input("\t\t請輸入學生出生日\n\t\t")
+                    return id, name, y, m, d, num
+                    break
+            except:
                 print("\t\t沒有這個人")
-                self.edit(list)
-            else:
-                print(f"\t\t修改{list[num].name}的資料")
-                id = input("\t\t請輸入學生座號\n\t\t")
-                name = input("\t\t請輸入學生姓名\n\t\t")
-                y = input("\t\t請輸入學生出生年\n\t\t")
-                m = input("\t\t請輸入學生出生月\n\t\t")
-                d = input("\t\t請輸入學生出生日\n\t\t")
-                return id, name, y, m, d, num
-        except:
-            print("\t\t沒有這個人")
-            self.edit(list)

@@ -3,7 +3,8 @@ from step2.lab04_MVC.Views import OutputView
 
 class Controller:
     def __init__(self):
-        self.list = Data().data()
+        self.list = Student.objects.data()
+        #pass
 
     def run(self):
         choice = OutputView().menu()

@@ -1,3 +1,14 @@
+class Data:
+    #因為在Student()中被引用，所以需要寫在Student()之前
+    def __init__(self):
+        self.list = list()
+
+    def add(self,st):
+        self.list.append(st)
+
+    def data(self):
+        return self.list
+
 class Date:
     def __init__(self, year = None, month = None, day = None):
         self.year = year
@@ -18,6 +29,9 @@ class Date:
         return f"{self.year}-{self.month}-{self.day}"
 
 class Student:
+    #類別屬性 共享資料（全域變數）
+    objects = Data()
+
     def __init__(self):
         self.id = None
         self.name = None
@@ -38,13 +52,3 @@ class Student:
 
     def __str__(self):
         return f"{self.id} {self.name} {self.birthdate}"
-
-class Data:
-    def __init__(self):
-        self.list = list()
-
-    def add(self,st):
-        self.list.append(st)
-
-    def data(self):
-        return self.list
