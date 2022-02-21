@@ -1,5 +1,2 @@
-x = input("?")
-print(x == "")
-y = None
-print(str(y))
-print(f"{y}")
+z="10"
+print(z*4)
