@@ -9,7 +9,7 @@ class OutputView:
         #print("{} {} {}".format(self.st.id,self.st.name,self.st.birthdate))
         print("\t\t共{}名學生".format(len(self.list)))
         for i in range(len(self.list)):
-            print("\t\t{:3}.座號：{:3} 姓名：{:10} 生日：".format(i+1,self.list[i].id,self.list[i].name,self.list[i].birthdate))
+            print("\t\t{:3}.座號：{:3} 姓名：{:10} 生日：{}".format(i+1,self.list[i].id,self.list[i].name,self.list[i].birthdate))
 
     def create(self):
         print("\t\t新建立一位學生資料")

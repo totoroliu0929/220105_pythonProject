@@ -9,6 +9,10 @@ class Data:
     def pop(self,num):
         self.list.pop(num)
 
+    def resort(self):
+        r = sorted(self.list, key = lambda i: i.id)
+        self.list = r
+
     def data(self):
         return self.list
 
