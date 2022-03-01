@@ -62,7 +62,7 @@ class Student:
 
 class Serializer:
     def __init__(self):
-        self.list = list()
+        self.data = Data()
 
     def deserializer(self):
         try:
@@ -72,11 +72,11 @@ class Serializer:
                     b = Date(item["year"], item["month"], item["day"])
                     st = Student()
                     st.set(item["id"], item["name"], b)
-                    self.list.append(st)
+                    self.data.add(st)
         except:
             pass
         finally:
-            return self.list
+            return self.data.list
 
     def serializer(self,nlist):
         d = list()
