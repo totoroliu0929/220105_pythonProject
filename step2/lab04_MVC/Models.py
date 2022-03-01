@@ -1,3 +1,4 @@
+import json
 class Data:
     #因為在Student()中被引用，所以需要寫在Student()之前
     def __init__(self):
@@ -58,3 +59,28 @@ class Student:
 
     def __str__(self):
         return f"{self.id} {self.name} {self.birthdate}"
+
+class Serializer:
+    def __init__(self):
+        self.list = list()
+
+    def deserializer(self):
+        try:
+            with open("student.json") as f:
+                d = json.load(f)
+                for item in d:
+                    b = Date(item["year"], item["month"], item["day"])
+                    st = Student()
+                    st.set(item["id"], item["name"], b)
+                    self.list.append(st)
+        except:
+            pass
+        finally:
+            return self.list
+
+    def serializer(self,nlist):
+        d = list()
+        for item in nlist:
+            d.append({"id":item.id, "name":item.name, "year":item.birthdate.year, "month":item.birthdate.month, "day":item.birthdate.day})
+        with open("student.json", "w") as f:
+            json.dump(d, f)
